@@ -14,14 +14,14 @@ We achieve this by:
 /deploy
  ├── docker-compose.yml
  ├── Dockerfile
- ├── .env.company1
- ├── .env.company2
 /src
  ├── components
  ├── assets
  ├── App.js
  ├── index.js
 package.json
+.env.company1
+.env.company2
 ```
 
 ---
@@ -93,7 +93,7 @@ REACT_APP_THEME=dark
 ```
 2️⃣ **Run the container:**
 ```sh
-docker-compose up --build
+docker-compose -f deploy/docker-compose-stage.yml up -d
 ```
 This builds and starts the project with the correct company environment.
 
@@ -103,7 +103,7 @@ This builds and starts the project with the correct company environment.
 - ✅ **Uses `dockerfile: deploy/Dockerfile`** because the `Dockerfile` is inside `deploy/`.
 - ✅ **Supports multiple brands** by using different `.env.companyname` files.
 - ✅ **Uses `build:companyname` & `start:companyname`** for easy switching.
-- ✅ **Runs seamlessly in Docker with `docker-compose up --build`**.
+- ✅ **Runs seamlessly in Docker with `docker-compose -f deploy/docker-compose-stage.yml up -d`**.
 
 ---
 
